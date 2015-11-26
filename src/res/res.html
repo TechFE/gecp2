@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>资源</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/res.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="main-wrapper1">
+  <div id="resMmain"> 
+  <!-- 上传文件按键 -->
+  <span class="all-res">全部资源:</span>
+  <button type="button" class="btn btn-primary file">上传文件</button>
+
+  <!------------- 搜索栏 -------->
+    <div id="wrap">
+      <div id="searDiv" class="searDiv"> 
+        <ul id="search-class1">
+            <li class="search-cls search-class1 classTitle">课程标准：</li><li class="search-cls search-class1 rwdl">全部</li>
+            <li class="search-cls search-class1 rwdl">人文地理</li>
+            <li class="search-cls search-class1 zrdl">自然地理</li> <li  class="search-cls search-class1 qydl">区域地理</li>
+            <li class="search-cls search-class1 zhdl">灾害地理</li><li  class="search-cls search-class1 qt">其 &nbsp 他</li>
+        </ul>
+        <ul id="search-class2">
+            <li class="search-cls search-class2 classTitle">文件格式：</li><li class="search-cls search-class2 ">全部</li>
+            <li class="search-cls search-class2 ">图 &nbsp 片</li>&nbsp &nbsp
+            <li class="search-cls search-class2 ">文&nbsp  档</li>&nbsp &nbsp &nbsp <li  class="search-cls search-class2 ">语  &nbsp音</li>&nbsp &nbsp &nbsp
+            <li class="search-cls search-class2 ">视  &nbsp 频</li>&nbsp &nbsp<li  class="search-cls search-class2 ">其 &nbsp 他</li>
+        </ul>
+        
+        <ul id="search-class3">
+            <li class="search-cls search-class3 classTitle">所属年级：</li><li class="search-cls search-class3 ">全部</li>
+            <li class="search-cls search-class3 ">七年级</li>&nbsp &nbsp
+            <li class="search-cls search-class3 ">八年级</li>&nbsp &nbsp  <li  class="search-cls search-class3 ">九年级</li>&nbsp &nbsp &nbsp
+            <li class="search-cls search-class3 ">高一</li>&nbsp &nbsp &nbsp<li  class="search-cls search-class3 ">高二</li>&nbsp &nbsp<li  class="search-cls search-class3 qt">高三</li>
+        </ul>
+    
+            <ul id="search-class4">
+            <li class="search-cls search-class4 classTitle">所属科室：</li><li class="search-cls search-class4 ">全部</li>
+            <li class="search-cls search-class4 ">陈列室</li>&nbsp &nbsp
+            <li class="search-cls search-class4 ">观察室</li>&nbsp &nbsp  <li  class="search-cls search-class4 ">放映室</li>&nbsp &nbsp &nbsp
+            <li class="search-cls search-class4 ">拓展室</li>&nbsp &nbsp<li  class="search-cls search-class4 ">其 &nbsp 他</li>
+
+           
+           
+        </ul>
+
+         
+      </div>
+    </div>
+    <!-- 搜索栏End -->
+    <div id="contentDiv" class="contentDiv">
+     <!-- 内容列表 -->
+    <div class="cont" id="cont" >
+       <!-- 一个框 -->
+      <!-- <div id="content" class="content cont2">
+        <img src="img/nr/灾害2.png" class="cont-img" alt=""/>
+        <p class="cont-title" id="cont-title">     </p>
+        <span class="cont-name"> </span> 
+        <span class="cont-date">2015-10-30</span>
+      </div> -->
+       <!-- 一个框End -->
+    </div>
+    <!---------容列表End----------------------->
+    </div>
+     <!-- 分页显示位置 -->
+      <!-- <div id="fenyediv">   -->
+     <!--    <ul class="page" id="page1"></ul>
+     </div>  
+     <input type="hidden" id="page-num" class="page-num"/> -->
+
+      <!-- </div> -->
+      <!-- 第三种方法 -->
+      <ul class="pagination" id="pagination1"></ul>
+      <hr>
+  
+   <!-- ------------主要内容End--------------------- -->
+
+
+    <!-- 默认不显示，文件上传背景和详情 -->
+   <div class="uploadbg"></div>
+   <div class="uploadDetial">
+      <div class="ultop">
+          <span class="ultitle" >上传文件</span>
+          <img class="ulclose"  height="25" wight="25" src="img/close.svg" />
+      </div>
+      <div class="ulMain">
+      <!-- <form> -->
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">*课程标准：</div>
+            <div class="col-sm-3 col-sm-offset-0 right-area">
+              <select name="kcbz" id="kcbz">
+                <option value="0" >--- --- ---</option>
+                <option value="自然地理">自然地理</option>
+                <option value="区域地理">区域地理</option>
+                <option value="人文地理">人文地理</option>
+                <option value="灾害地理">灾害地理</option>
+                <option value="其它">其它</option>
+              </select>
+            </div>
+        </div>
+         
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">*所属年级：</div>
+            <div class="col-sm-3 col-sm-offset-0 right-area">
+              <select name="ssnj" id="ssnj">
+                <option value="0">--- --- ---</option>
+                <option value="七年级">七年级&nbsp &nbsp</option>
+                <option value="八年级">八年级</option>
+                <option value="九年级">九年级</option>
+                <option value="高一">高一</option>
+                <option value="高二">高二</option>
+                <option value="高三">高三</option>
+              </select>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">*所属科室：</div>
+            <div class="col-sm-3 col-sm-offset-0 right-area">
+              <select name="ssks" id="ssks">
+                <option value="0">--- --- ---</option>
+                <option value="陈列室">陈列室&nbsp &nbsp</option>
+                <option value="观察室">观察室</option>
+                <option value="放映室">放映室</option>
+                <option value="拓展室">拓展室</option>
+                <option value="其它">其它</option>
+              </select>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">&nbsp文件类型：</div>
+            <div class="col-sm-3 col-sm-offset-0 right-area">
+              <select name="wjlx" id="wjlx">
+                <option>--- --- ---</option>
+                <option value="图片">图片&nbsp &nbsp &nbsp &nbsp</option>
+                <option value="文档">文档</option>
+                <option value="语音">语音</option>
+                <option value="视频">视频</option>
+                <option value="其它">其它</option>
+              </select>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;附件：</div>
+            <div class="col-sm-4 col-sm-offset-0 right-area"><!-- <img id="fj" class="fj" src="img/scfj.svg" width="15" height="15" alt="上传" /> -->
+            <input type="file"  multiple="multiple"  value="上传附件" class="upfile" id="upfile">
+            </div>
+          </div>
+          
+          <div><label id="upstatus">&nbsp</label></div>
+         
+           <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">备注信息：</div>
+            <div class="col-sm-3 col-sm-offset-0 right-area">
+            <textarea rows="3" cols="20" id="bzxx"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            
+            <div class="col-sm-4 col-sm-offset-3" id="up-button">
+            <button type="button" class="btn btn-primary" id="ulCal">取消</button><!-- <a id="ulCal" class="mybutton">取消</a>  -->
+            </div>
+            <div class="col-sm-4 col-sm-offset-0 right-area" id="up-button">
+            <button type="button" class="btn btn-primary" id="ulQd">确定</button>
+            <!-- <a id="ulQd" class="mybutton">确定</a> -->
+            </div>
+            <!-- <td></td> -->
+          </tr>
+        </table>
+      <!-- </form> -->
+      </div>
+   </div>
+
+
+
+
+<script src="../bootstrap/js/jquery.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="js/content.js" type="text/javascript"></script>
+<script src="js/res.js" type="text/javascript"></script>
+<script src="js/search.js" type="text/javascript"></script>
+<script src="js/jqPaginator.js" type="text/javascript"></script>
+<script src="../common/jslib/gClass.js" type="text/javascript"></script>
+<script src="../common/jslib/gConfig.js" type="text/javascript"></script>
+<script src="../common/jslib/gUtil.js" type="text/javascript"></script>
+<script src="../common/jslib/gUpload.js" type="text/javascript"></script>
+<script src="../common/jslib/gWebSQL.js" type="text/javascript"></script>
+<script src="../common/jslib/gWebSQLScript.js" type="text/javascript"></script>
+
+</body>
+</html>

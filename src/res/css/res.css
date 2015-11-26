@@ -1,0 +1,234 @@
+html {
+	font-size: 100%;
+}
+body {
+	width:100%; /*height:70em;*/
+	font-size: 1em;
+	font-family:"微软雅黑";
+	margin:0;	
+	/*opacity: 0.5;*/	
+	
+}
+.main-wrapper1{
+	position: relative;
+	width:100%;
+	min-width: 1000px;
+	/*background-color: #CCCCCC;*/
+	/*background:url("../img/background3.jpg") no-repeat top left;*/
+	background-size:100% 100%;
+}
+
+
+#resMmain{
+	width: 100%;
+	height: 58em;
+	margin-top:0em;
+	padding-top:1em;
+	/*opacity:0.8;*/
+
+	/*background-color: #D5F4FB;*/
+	/*text-align:center; */   /*float:left需要div居中1*/
+}
+/*上传一栏目*/
+.all-res{
+	margin-left:180px;
+	font-weight: bold;
+	color:#286090;
+}
+.file{
+	float: right;
+	margin-top: -13px;
+	margin-right: 260px;
+}
+/*********************搜索栏*************************************/
+.searDiv{
+	width: 75%;
+	height: 10em;
+	margin: 0 auto;    /*div居中2*/
+	/*border-style: outset;*/
+	/*margin-top:0.5em;*/
+	border:solid #FFFFFF 0.1em;	
+	background-color: rgba(255,255,255,1);
+}
+.searDiv ul{
+	margin-top: 16px;
+	margin-bottom: 16px;
+	padding-left: 40px;
+}
+.search-cls{
+	display: inline;
+	font-size:0.95em;
+	margin-left:1em;	
+} 
+
+#search-class1{
+	margin-top:0.5em;
+}
+.classTitle{
+	font-weight:bold;
+}
+.selected{
+	color: #0000FF;
+}
+#searDiv{
+	border-top:2px solid #edf1f2;
+	border-bottom:2px solid #edf1f2;
+}
+
+/*********************内容栏*************************************/
+.contentDiv{
+	position:relative;
+	width: 75%;
+	height: 44.5em;
+	/*background-color: #FFFFFF;*/
+	/*top:1em;*/
+	margin: 0 auto;   /*居中*/
+	/*text-align: center;*/
+    margin-left: 185px;
+	overflow: hidden;
+	/*opacity: 0.7;*//*和下面一句话是有区别的*/
+	/*background-color: rgba(255,255,255,1);*/
+}
+.cont{
+	margin: 0 auto;
+	padding: 0em;
+	left:0.5em;
+	text-align: center;/*div小块里面*/
+	overflow: hidden;
+	/*width: 100%;*/
+}
+.content{
+	float:left;
+	position:relative;
+	width:11.2em;
+	height:13em;
+	background-color:#FFFFFF;
+	/*margin: 0 auto;   */
+	/*margin-left: 2em;*/
+	margin-right: 1.02em;
+	margin-top: 1em;
+	padding:0.2em;
+	/*opacity: 0.9;*/
+}
+.content:hover{
+	background-color: #FFFFFF;
+	opacity: 0.3;
+	/*background-color: rgba(00,00,00,0.5);*/
+	z-index: 1;
+	cursor: pointer;
+}
+
+#content .cont-img{
+	/*margin-top: 1.5em;*/
+	width: 180px;
+	height: 130px;
+}
+#content .cont-title{
+	/*position: absolute;*/
+	/*top: 5em;*/
+	/*margin-bottom: 3em;*/
+	vertical-align: middle;
+	/*text-align: center;无用*/
+	margin-top: 0em;
+	font-family: "幼圆";
+	color:#000000;
+	overflow: hidden;
+}
+#content .cont-name{
+	position:absolute;
+	float:right;
+	font-size:0.9em;
+	font-family: "幼圆";
+	right:0.8em;
+	bottom:1.3em;
+	color:#000000;
+
+}
+#content .cont-date{
+	position:absolute;
+	float:right;
+	right:0.8em;
+	font-size:0.8em;
+	font-family: "幼圆";
+	bottom:0em;
+	color:#000000;
+}
+#kcbz-data,
+#ssnj-data,
+#ssks-data,
+#wjlx-data{
+	display: none;
+}
+.pagination{
+	/*background-color: #FFFFFF;*/
+	float: right;
+	margin-right: 35%;
+
+}
+
+/*************上传文件背景层*************************/
+.uploadbg{
+	display: none;
+	position: absolute;
+	top:0;
+	left: 0;
+	width:100%;
+	height: 100%;
+	opacity: 0.5;
+	background-color: #000000;
+}
+/*************上传文件详情***************************/
+.uploadDetial{
+	display: none;
+	position: absolute;
+	/*top:10em;
+	left: 25em;*//*jquery*/
+	/*text-align: center;*/
+	width:29em;
+	height: 29em;
+	background-color: #FFFFFF;
+}
+.ultop{
+	padding: 0.4em;
+	/*background-color: #0000FF;*/
+}
+.ultitle{
+	font-size: 0.9em;
+	margin-left: 1em;
+	color:#0000FF;
+}
+
+.ulclose{
+	float: right;
+}
+.ulMain{
+	/*margin: 0 auto;*/
+	/*padding-left: 6em;*/
+	position: absolute;
+	top:1.5em;
+	/*margin-top: 0em;*/
+	margin-left: 2em;
+	overflow: hidden;
+}
+.row{
+	margin-top: 20px;
+}
+.right-area{
+	margin-left: -40px;
+}
+
+
+.upfile{
+	color: #00FF00;
+}
+#upstatus{
+	float: right;
+	color: #0000FF;
+	font-size: 0.8em;
+
+}
+/*#up-button{
+	position: absolute;
+	bottom: 0.5em;
+	margin-bottom: 0.5em;
+}*/
