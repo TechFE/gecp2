@@ -58,7 +58,7 @@ $(document).ready(function(){
 		var date=new Date().toLocaleDateString();
 		//console.log(kcbz+"  "+ssnj+"   "+ssks+"   "+wjlx+"   "+ bzxx+"  "+date);
 		//判空
-		if(kcbz==0||ssnj==0||ssks==0){
+		if(kcbz===0||ssnj===0||ssks===0){
 			alert("带 * 的为必填项");
 			return;
 		}
@@ -89,11 +89,11 @@ $(document).ready(function(){
 
 		var files,filePath;
 		files=document.getElementById('upfile').files;  //filelist
-		if(files.length!=0){
-			var filename="";
+		var filename="";
+		if(files.length!==0){
 			for (var i = 0; i < files.length-1; i++) {
 				filename+=files[i].name+";";
-			};
+			}
 			filename+=files[files.length-1].name;
 			//console.log(filename);
 			$('#upstatus').text("正在上传，请稍后......");
@@ -127,7 +127,7 @@ $(document).ready(function(){
 		var sqlServices=new gEcnu.WebSQLServices.SQLServices();
 		sqlServices.processAscyn("ADD","gecp2","uploadFile",params);
 
-	})
+	});
 	
 	/*****分页功能**********************/
 	//1

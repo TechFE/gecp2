@@ -26,6 +26,7 @@ $(document).ready(function(){
 			alert("带 * 的为必填项！");
 			// continue;
 			return;
+			return;
 		}
 		if(password!=password2){
 			/*$('#alertModal').on('show.bs.modal',function(event){
@@ -68,5 +69,6 @@ $(document).ready(function(){
 			$('.password2').val('');
 			$('.email').val('');
 			$('.inputIntro').val('');
+
       }); 
   });  //$(document).ready(sfunction()

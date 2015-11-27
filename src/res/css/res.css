@@ -22,7 +22,7 @@ body {
 #resMmain{
 	width: 100%;
 	height: 58em;
-	margin-top:0em;
+	margin-top:0;
 	padding-top:1em;
 	/*opacity:0.8;*/
 
@@ -118,23 +118,23 @@ body {
 	cursor: pointer;
 }
 
-#content .cont-img{
+.cont-img{
 	/*margin-top: 1.5em;*/
 	width: 180px;
 	height: 130px;
 }
-#content .cont-title{
+.cont-title{
 	/*position: absolute;*/
 	/*top: 5em;*/
 	/*margin-bottom: 3em;*/
 	vertical-align: middle;
 	/*text-align: center;无用*/
-	margin-top: 0em;
+	margin-top: 0;
 	font-family: "幼圆";
 	color:#000000;
 	overflow: hidden;
 }
-#content .cont-name{
+.cont-name{
 	position:absolute;
 	float:right;
 	font-size:0.9em;
@@ -144,19 +144,19 @@ body {
 	color:#000000;
 
 }
-#content .cont-date{
+.cont-date{
 	position:absolute;
 	float:right;
 	right:0.8em;
 	font-size:0.8em;
 	font-family: "幼圆";
-	bottom:0em;
+	bottom:0;
 	color:#000000;
 }
-#kcbz-data,
-#ssnj-data,
-#ssks-data,
-#wjlx-data{
+.kcbz-data,
+.ssnj-data,
+.ssks-data,
+.wjlx-data{
 	display: none;
 }
 .pagination{
