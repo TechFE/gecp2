@@ -20,13 +20,21 @@ var jsonText="[";//封装json
 
 $(document).ready(function() {
     //console.log("jquery ok!");
+    queryDB();
+
+});
+
+function queryDB(filter){
     /*从数据中读取数据*/
-    var failsql = "";
+    //filter=filter.slice(0,-4);
+    
+    console.log(filter);
+   
+        console.log(filter);
     var sqlServices = new gEcnu.WebSQLServices.SQLServices({
         'processCompleted': function(data) {
             // console.log(data);//回掉函数返回的数据
             // console.log(data[0].date);
-
             for (var i = 0; i < data.length; i++) {
                 dates.push(data[i].date);   //
                 names.push(data[i].uldname);//
@@ -43,7 +51,7 @@ $(document).ready(function() {
                 filenamesType.push(split[1]);//
 
                 /*var jsonText={
-                	"names":
+                    "names":
                 };*/
                 // 封装成json
                 jsonText+='{ "upNames":"'+names[i-1]+'","date":"'+dates[i-1]+'","kcbz":"'+kcbzDatas[i]+
@@ -51,17 +59,19 @@ $(document).ready(function() {
                 '","filenames":"'+filenames[i]+'"},';
 
             }
+
                jsonText=jsonText.slice(0, -1);
                jsonText+=("]");
+               jsonText=JSON.parse(jsonText);
 
                /* var kcbzTopic=jsonText[1].kcbz;
-				var ssnjTopic=jsonText[0].ssnj;
-				// console.log(json2String);
-				console.log(kcbzTopic);
-				console.log(ssnjTopic);
+                var ssnjTopic=jsonText[0].ssnj;
+                // console.log(json2String);
+                console.log(kcbzTopic);
+                console.log(ssnjTopic);
                //console.log(jsonText);*/
 
-            //动态创建div？JQuery复制	
+            //动态创建div？JQuery复制  
             /*var txt1="<p>Text.</p>"; // 以 HTML 创建新元素
             var txt2=$("<p></p>").text("Text.");  // 以 jQuery 创建新元素
             var txt3=document.createElement("p"); // 以 DOM 创建新元素
@@ -82,10 +92,7 @@ $(document).ready(function() {
     };
     sqlServices.processAscyn("SQLQUERY", "gecp2", lyrOrSQL);
     /**********数据库End**********************/
-
-});
-
-
+}
 function getContentDiv(pageNum) {
     // var pageNum=$('#page-num').val();
     /*if(type=="init"){
@@ -111,7 +118,7 @@ function getContentDiv(pageNum) {
         /*var cloned=$('#content').clone(true);//true带着所有时间克隆
         console.log(cloned);
         $('.cont').append(cloned);*/
-        if (filenamesTitle[i] != null || filenamesTitle[i] != undefined) {
+        if (filenamesTitle[i] != null || filenamesTitle[i] != undefined) {//不能改为！==
             var html = "<div id='content' class='content cont2'>" +
                 "<img src='img/nr/" + (j + 1) + ".png' class='cont-img' alt=''/>" +
                 "<p class='cont-title' id='cont-title'>" + filenamesTitle[i] + "</p>" +

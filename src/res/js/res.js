@@ -50,10 +50,10 @@ $(document).ready(function(){
 	});
 	//确定===>传入数据库
 	$('#ulQd').click(function(){
-		var kcbz=$('#kcbz').val();
-		var ssnj=$('#ssnj').val();
-		var ssks=$('#ssks').val();
-		var wjlx=$('#wjlx').val();
+		var kcbz=$('#upload_kcbz').val();
+		var ssnj=$('#upload_ssnj').val();
+		var ssks=$('#upload_ssks').val();
+		var wjlx=$('#upload_wjlx').val();
 		var bzxx=$('#bzxx').val();
 		var date=new Date().toLocaleDateString();
 		//console.log(kcbz+"  "+ssnj+"   "+ssks+"   "+wjlx+"   "+ bzxx+"  "+date);
@@ -70,14 +70,6 @@ $(document).ready(function(){
 		// for (var i = 0,file; file=oFiles[i]; i++) {
 		// 	formData.append(file.name,file);
 		// };
-
-		//AJAX 
-		/*var xhr=new XMLHTTPRequest();
-		xhr.open('POST','.php',true);
-		xhr.onload=function(){
-			alert("上传成功");
-		}
-		xhr.send(formData);*/
 		
 		//取到数据  存入数据库
 		// var fileName=files.name;
