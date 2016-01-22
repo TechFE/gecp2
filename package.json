@@ -1,0 +1,24 @@
+{
+  "name": "gecp2",
+  "version": "0.0.1",
+  "description": "Geographic Education Cloud Platform",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TechGIS/gecp2.git"
+  },
+  "author": "TechGIS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TechGIS/gecp2/issues"
+  },
+  "homepage": "https://github.com/TechGIS/gecp2",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-connect": "^0.8.0"
+  }
+}
