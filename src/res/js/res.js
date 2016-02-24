@@ -1,4 +1,8 @@
 // JavaScript Document
+/**
+ * 文件上传带数据库中，分页
+ * 
+ */
 	 var screen_height=screen.height;
 	 var screen_width=screen.width;
 	 // var screen_height=document.body.clientWidth;
@@ -12,6 +16,7 @@
 /***************上传文件 保存到数据库中**********************/
 
 $(document).ready(function(){
+	console.log("我是res.js");
 	/***************上传文件****************************/
 	$('.file').on('click',function(){
 		// $('.upload input').addClass('upClick');

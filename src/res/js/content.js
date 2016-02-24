@@ -3,9 +3,24 @@
  * 生成文件列表div
  *
  */
-/*全局变量*/
-var dates = []; //日期
-var names = []; //上传人
+var fileEntity={
+     dates:[],
+     names:[],
+     kcbzDatas :[], //课程标准
+     ssnjDatas :[], //所属年级
+     ssksDatas :[], //科室
+     wjlxDatas :[], //文件类型
+     filenames :[],
+     filename :[],
+     filenamesTitle :[],
+     filenamesType :[],
+     maxPage:0, //最大的页码
+     totalData:0, //总数据
+     jsonText:"["//封装json
+};
+//fileEntity.dates = [] ; //日期
+//var dates = [];  //日期
+/*var names = []; //上传人
 var kcbzDatas = []; //课程标准
 var ssnjDatas = []; //所属年级
 var ssksDatas = []; //科室
@@ -16,51 +31,73 @@ var filenamesTitle = [];
 var filenamesType = [];
 var maxPage; //最大的页码
 var totalData; //总数据
-var jsonText="[";//封装json
+var jsonText="[";//封装json*/
 
 $(document).ready(function() {
     //console.log("jquery ok!");
+    console.log("我是content.js");
     queryDB();
+    console.log("我是content.js里面的queryDB()函数");
+    // var lastLength=data.length();
+    // console.log(lastLength);
 
 });
 
-function queryDB(filter){
+function queryDB(queryFilter){
     /*从数据中读取数据*/
-    //filter=filter.slice(0,-4);
+    //queryFilter=queryFilter.slice(0,-4);
+    // isRefresh(queryFilter);
+    console.log(queryFilter);
+    //重新置为空，不然数据会累加
+    fileEntity = {
+      dates:[],
+     names:[],
+     kcbzDatas :[], //课程标准
+     ssnjDatas :[], //所属年级
+     ssksDatas :[], //科室
+     wjlxDatas :[], //文件类型
+     filenames :[],
+     filename :[],
+     filenamesTitle :[],
+     filenamesType :[],
+     maxPage:0, //最大的页码
+     totalData:0, //总数据
+     jsonText:"["//封装json
+    };
+    // var queryFilter1=queryFilter.slice(0, -4);
+    // var queryFilter1=queryFilter.substring(0, 4);
     
-    console.log(filter);
-   
-        console.log(filter);
+    // console.log(queryFilter1);
     var sqlServices = new gEcnu.WebSQLServices.SQLServices({
         'processCompleted': function(data) {
-            // console.log(data);//回掉函数返回的数据
+            console.log(data);//回掉函数返回的数据
             // console.log(data[0].date);
             for (var i = 0; i < data.length; i++) {
-                dates.push(data[i].date);   //
-                names.push(data[i].uldname);//
-                kcbzDatas.push(data[i].kcbz);//
-                ssnjDatas.push(data[i].ssnj);//
-                ssksDatas.push(data[i].ssks);//
-                wjlxDatas.push(data[i].wjlx);//
+                fileEntity.dates.push(data[i].date);   //
+                fileEntity.names.push(data[i].uldname);//
+                fileEntity.kcbzDatas.push(data[i].kcbz);//
+                fileEntity.ssnjDatas.push(data[i].ssnj);//
+                fileEntity.ssksDatas.push(data[i].ssks);//
+                fileEntity.wjlxDatas.push(data[i].wjlx);//
 
-                filename[i] = data[i].filename;
-                filenames.push(filename[i]); //整个名字//
+                fileEntity.filename[i] = data[i].filename;
+                fileEntity.filenames.push(fileEntity.filename[i]); //整个名字//
                 //名字和类型分开
-                var split = filenames[i].split('.');
-                filenamesTitle.push(split[0]);//
-                filenamesType.push(split[1]);//
+                var split = fileEntity.filenames[i].split('.');
+                fileEntity.filenamesTitle.push(split[0]);//
+                fileEntity.filenamesType.push(split[1]);//
 
                 /*var jsonText={
                     "names":
                 };*/
                 // 封装成json
-                jsonText+='{ "upNames":"'+names[i-1]+'","date":"'+dates[i-1]+'","kcbz":"'+kcbzDatas[i]+
-                '","ssnj":"'+ssnjDatas[i]+'","ssks":"'+ssksDatas[i]+'","wjlx":"'+wjlxDatas[i]+
-                '","filenames":"'+filenames[i]+'"},';
+                fileEntity.jsonText+='{ "upNames":"'+fileEntity.names[i-1]+'","date":"'+fileEntity.dates[i-1]+'","kcbz":"'+fileEntity.kcbzDatas[i]+
+                '","ssnj":"'+fileEntity.ssnjDatas[i]+'","ssks":"'+fileEntity.ssksDatas[i]+'","wjlx":"'+fileEntity.wjlxDatas[i]+
+                '","filenames":"'+fileEntity.filenames[i]+'"},';
 
             }
 
-               jsonText=jsonText.slice(0, -1);
+               jsonText=fileEntity.jsonText.slice(0, -1);
                jsonText+=("]");
                jsonText=JSON.parse(jsonText);
 
@@ -78,6 +115,7 @@ function queryDB(filter){
             txt3.innerHTML="Text.";
             $("p").append(txt1,txt2,txt3); // 追加新元素
             */
+            
             getContentDiv(0); //绘制内容div
 
         },
@@ -88,7 +126,8 @@ function queryDB(filter){
     //processAscyn: function(ActionType,map,lyrOrSQL,Params)
     var lyrOrSQL = {
         'lyr': 'uploadFile',
-        'fields': 'uldname,kcbz,ssnj,ssks,wjlx,date,filename'
+        'fields': 'uldname,kcbz,ssnj,ssks,wjlx,date,filename',
+        'filter':queryFilter
     };
     sqlServices.processAscyn("SQLQUERY", "gecp2", lyrOrSQL);
     /**********数据库End**********************/
@@ -98,7 +137,7 @@ function getContentDiv(pageNum) {
     /*if(type=="init"){
     	pageNum=1;
     }*/
-    totalData = filenamesTitle.length;
+    totalData = fileEntity.filenamesTitle.length;
     // console.log(totalData);
     // console.log("totalData 1 ="+totalData);
     // $('#total-data').val(totalData);
@@ -118,18 +157,15 @@ function getContentDiv(pageNum) {
         /*var cloned=$('#content').clone(true);//true带着所有时间克隆
         console.log(cloned);
         $('.cont').append(cloned);*/
-        if (filenamesTitle[i] != null || filenamesTitle[i] != undefined) {//不能改为！==
+        if (fileEntity.filenamesTitle[i] != null || fileEntity.filenamesTitle[i] != undefined) {//不能改为！==
             var html = "<div id='content' class='content cont2'>" +
                 "<img src='img/nr/" + (j + 1) + ".png' class='cont-img' alt=''/>" +
-                "<p class='cont-title' id='cont-title'>" + filenamesTitle[i] + "</p>" +
-                "<span class='cont-name'>" + names[i] + " </span> " +
-                "<span class='cont-date'>" + dates[i] + "</span>" +
-                "<span id='kcbz-data' class='kcbz-data'>" + kcbzDatas[i] + "</span>" +
-                "<span id='ssnj-data' class='ssnj-data'>" + ssnjDatas[i] + "</span>" +
-                "<span id='ssks-data' class='ssks-data'>" + ssksDatas[i] + "</span>" +
-                "<span id='wjlx-data' class='wjlx-data'>" + wjlxDatas[i] + "</span>" +
+                "<p class='cont-title' id='cont-title'>" + fileEntity.filenamesTitle[i] + "</p>" +
+                "<span class='cont-name'>" + fileEntity.names[i] + " </span> " +
+                "<span class='cont-date'>" + fileEntity.dates[i] + "</span>" +
                 "</div>";
             j++;
+            //console.log(html);
             $('.cont').append(html);
         }
     }
