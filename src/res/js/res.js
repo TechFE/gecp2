@@ -16,13 +16,13 @@
 /***************上传文件 保存到数据库中**********************/
 
 $(document).ready(function(){
-	console.log("我是res.js");
+	console.log("我是res.js"); 
 	/***************上传文件****************************/
 	$('.file').on('click',function(){
 		// $('.upload input').addClass('upClick');
 		//console.log("上传");
 		// alert("dakai");
-		//弹出输入框  上传文件及选择类型
+		//弹出输入框  上传文件及选择类型 
 		$('.uploadbg').css('display','block');
 		$('.uploadDetial').css('display','block');
 		//$('.right-area select option').css('font-size','8');
@@ -32,7 +32,7 @@ $(document).ready(function(){
 		var height=$('.uploadDetial').height();
 		var cW=cWidth(width);
 		var cH=cHeight(height);
-		// console.log(cW+"height:"+cH);
+		// console.log(cW+"height:"+cH)
 		$('.uploadDetial').css('top',cH);
 		$('.uploadDetial').css('left',cW);
 	});
@@ -55,6 +55,8 @@ $(document).ready(function(){
 	});
 	//确定===>传入数据库
 	$('#ulQd').click(function(){
+		var uldname = getCookie('username');
+		console.log(uldname);
 		var kcbz=$('#upload_kcbz').val();
 		var ssnj=$('#upload_ssnj').val();
 		var ssks=$('#upload_ssks').val();
@@ -116,7 +118,6 @@ $(document).ready(function(){
 		});
 		/***********文件上传End*************************/
 		/**************字段存入数据库中********************/
-		var uldname=" ";
 		var params={
 			Fields:['uldname','kcbz','ssnj','ssks','wjlx','bzxx','date','filename'],
 			Data:[[uldname,kcbz,ssnj,ssks,wjlx,bzxx,date,filename]]
@@ -127,65 +128,6 @@ $(document).ready(function(){
 	});
 	
 	/*****分页功能**********************/
-	//1
-	 /*$.jqPaginator('#pagination1', {
-        totalPages: 100,
-        visiblePages: 10,
-        currentPage: 1,
-        onPageChange: function (num, type) {
-            // $('#p1').text(type + '：' + num);
-            console.log("当前第"+num);
-        }
-    });*/
-	//2方法
-	// var totalData=$('#total-data').val();
-	// console.log("totalData=   "+totalData);
-
-	/*$.fn.page.defaults = {
-		// total:30,
-	    pageSize: 15,*/
-	    /*pageBtnCount: 9,
-	    showFirstLastBtn: true,
-	    firstBtnText: null,
-	    lastBtnText: null,
-	    prevBtnText: "&laquo;",
-	    nextBtnText: "&raquo;",
-	    loadFirstPage: true,
-	    showInfo: true,*/
-	   // infoFormat: '',
-	   /* showJump: false,
-	    jumpBtnText: 'Go',
-	    showPageSizes: false,
-	    pageSizeItems: null*/
-	//};
-	/* $("#page1").page({ 
-	 	total: 1000,
-	    firstBtnText: '首页',
-	    lastBtnText: '尾页',
-	    prevBtnText: '上一页',
-	    nextBtnText: '下一页',
-	    showInfo: true,
-	    showJump: true,
-	    jumpBtnText:'跳转',
-	    showPageSizes: true,
-	 });
-
-	 $('#page1').on("pageClicked", function (event,pageIndex) {
-   		console.log('EventName = pageClicked , pageIndex = ' +pageIndex + '');
-   		// $('#page-num').val(pageIndex);//保存到hidden里面
-   		// console.log("====="+$('#page-num').val());
-   		
-   		getContentDiv(pageIndex);//重新绘制内容div
-	}).on('jumpClicked', function (event, pageIndex) {
-	   	console.log('EventName = jumpClicked , pageIndex = ' + pageIndex + '');
-   		//$('#page-num').val(pageIndex);
-   		
-   		getContentDiv(pageIndex);//重新绘制内容div
-	}).on('pageSizeChanged', function (event,pageSize) {
-	    console.log('EventName = pageSizeChanged , pageSize = ' + pageSize + '');
-	});*/
-     
-	//3
 	 $.jqPaginator('#pagination1', {
         totalPages: 100,
         visiblePages: 10,

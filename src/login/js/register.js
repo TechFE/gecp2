@@ -15,7 +15,7 @@ $(document).ready(function(){
 		 password2=$.trim($('.password2').val());
 		 email=$.trim($('.email').val());
 		 inputIntro=$.trim($('.inputIntro').val());
-		console.log(username+realname+password+email+inputIntro);
+		//console.log(username+realname+password+email+inputIntro);
 		//填写逻辑
 		if(username==""||password==""){
 			/*$('alertModal').modal('show');

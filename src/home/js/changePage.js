@@ -22,7 +22,7 @@ $(document).ready(function(){
 		console.log(txt);
 		if(txt=="首页"){
 			// $('#main-div').css('height','1720px');
-			$('#mainframe').css('height','1720px');
+			$('#mainframe').css('height','1800px');
 			$('#mainframe').attr('src','home/home.html');
 		}
 

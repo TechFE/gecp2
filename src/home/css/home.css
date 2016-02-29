@@ -94,6 +94,9 @@ body{
 	padding-right: 15px;
 	padding-left: 15px;
 }
+.summary .row{
+    margin-top: 60px;
+}
 .summary .col-md-4{
 	margin-top: 20px;
 	text-align:center; 
@@ -126,7 +129,8 @@ body{
 }
 /*iframe*/
 #main-frame{
-
+    /*scroll:*/
+    /* overflow-y:hidden; */  
 }
 
 footer{

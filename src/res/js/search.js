@@ -62,10 +62,9 @@ $(document).ready(function(){
     	// $('.cont').empty(); //清除所有再去添加
     	// $('div').remove('.content');
 		document.querySelector('.cont').innerHTML="";
-    	console.log('%c点击搜索','background:red');
 		//点击搜索之后  重新遍历数据库
 		queryDB(whereArgs.slice(0,-4));
-
+ 
 	});
 });
 	
@@ -107,86 +106,3 @@ $(document).ready(function(){
 		return whereArgs;
 	}
 
-	/*function quertDB(){
-		var failsql = "";
-   		var sqlServices = new gEcnu.WebSQLServices.SQLServices({
-        'processCompleted': function(data) {
-       
-            getContentDiv(0); //绘制内容div
-        },
-        'processFailed': function() {
-            console.log("content.js文件下数据库操作失败！");
-        }
-    });
-    //processAscyn: function(ActionType,map,lyrOrSQL,Params)
-    var lyrOrSQL = {
-        'lyr': 'uploadFile',
-        'fields': 'uldname,kcbz,ssnj,ssks,wjlx,date,filename'
-    };
-    console.log(whereArgs);
-    sqlServices.processAscyn("SQLQUERY", "gecp2", lyrOrSQL);
-    /**********数据库End**********************/
-	//}*/
-	//点击查询
-	// function clk2search(){
-	// 	/*topicParentName取得后，比对jsonText,通过父类变遍历所有项，
-	// 	取得与点击对象一致的，重新封装一json数据，传给content.js，并且只是刷新内容div
-	// 	问题：只是刷新内容div的实现？*/
-	// 	// var json2String=JSON.stringify(jsonText);
-	// 	//console.log(jsonText);
-	// 	//console.log(jsonText[1]);
-	// 	//判断如果是课程标准
-	// 	var kcbzTopic=[],wjgsTopic=[],ssnjTopic=[],ssksTopic=[];
-	// 	var searchIndex=[];
-	// 	var jsonRes=[];//选择之后的结果
-	// 	switch(topicParentName){
-	// 		case "kcbz":
-	// 			for (var i = 0; i < jsonText.length; i++) {
-	// 				kcbzTopic[i]=jsonText[i].kcbz;
-	// 				if(kcbzTopic[i]==topic){ //课程标准符合
-	// 					searchIndex.push(i);
-	// 					jsonRes.push(jsonText[i]);
-	// 				}
-	// 			}
-	// 				jsonText=jsonRes;
-	// 				console.log(jsonText);
-	// 				/*console.log(kcbzTopic);
-	// 				console.log(searchIndex);
-	// 				console.log(jsonRes);*/
-	// 			break;
-	// 		case "wjgs":
-	// 			for (var i = 0; i < jsonText.length; i++) {
-	// 				wjgsTopic[i]=jsonText[i].wjlx;
-	// 				if(wjgsTopic[i]==topic){ 
-	// 					searchIndex.push(i);
-	// 					jsonRes.push(jsonText[i]);
-	// 				}
-	// 			}
-	// 				jsonText=jsonRes;
-	// 				console.log(jsonText);
-	// 			break;
-	// 		case "ssnj":
-	// 			for (var i = 0; i < jsonText.length; i++) {
-	// 				ssnjTopic[i]=jsonText[i].ssnj;
-	// 				if(ssnjTopic[i]==topic){ 
-	// 					searchIndex.push(i);
-	// 					jsonRes.push(jsonText[i]);
-	// 				}
-	// 			}
-	// 				jsonText=jsonRes;
-	// 				console.log(jsonText);
-	// 			break;
-	// 		case "ssks":
-	// 		for (var i = 0; i < jsonText.length; i++) {
-	// 				ssksTopic[i]=jsonText[i].ssks;
-	// 				if(ssksTopic[i]==topic){ 
-	// 					searchIndex.push(i);
-	// 					jsonRes.push(jsonText[i]);
-	// 				}
-	// 			}
-	// 				jsonText=jsonRes;
-	// 				console.log(jsonText);
-	// 			break;
-
-	// 	}
-	// }
