@@ -69,23 +69,7 @@ $(document).ready(function(){
 			alert("带 * 的为必填项");
 			return;
 		}
-		// var fj=$('#fj').val();//附件
-		/***********文件上传*************************/
-		// var oFiles=document.querySelector("#file");
-		// var formData=new FromData(); //表单数据对象
-		// //遍历文件列表
-		// for (var i = 0,file; file=oFiles[i]; i++) {
-		// 	formData.append(file.name,file);
-		// };
-		
-		//取到数据  存入数据库
-		// var fileName=files.name;
-		/*fileDir=document.getElementById('upfile').value;//文件本地地址
-		console.log(fileDir);*/
-		// fileDir.split
-		// var oFiles=document.querySelector("#upfile");
-		// console.log(oFiles[0].name);
-
+	
 		var files,filePath;
 		files=document.getElementById('upfile').files;  //filelist
 		var filename="";

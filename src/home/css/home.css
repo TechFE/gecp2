@@ -129,8 +129,7 @@ body{
 }
 /*iframe*/
 #main-frame{
-    /*scroll:*/
-    /* overflow-y:hidden; */  
+     /*overflow-y:hidden;   */
 }
 
 footer{

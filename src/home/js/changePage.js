@@ -30,7 +30,6 @@ $(document).ready(function(){
 			// $('#main-div').css('height','950px');
 			$('#mainframe').css('height','1000px');
 			$('#mainframe').attr('src','res/res.html');		
-			console.log("okk");
 		}
 
 		if(txt=="社区"){

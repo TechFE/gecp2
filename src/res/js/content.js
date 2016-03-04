@@ -1,22 +1,23 @@
 /*
  * zry 2015-11-05
- * 生成文件列表div
+ * 生成文件列表div 点击进入详情页,下载
  *
  */
-var fileEntity={
-     dates:[],
-     names:[],
-     kcbzDatas :[], //课程标准
-     ssnjDatas :[], //所属年级
-     ssksDatas :[], //科室
-     wjlxDatas :[], //文件类型
-     filenames :[],
-     filename :[],
-     filenamesTitle :[],
-     filenamesType :[],
-     maxPage:0, //最大的页码
-     totalData:0, //总数据
-     jsonText:"["//封装json
+var fileEntity = {
+    dates: [],
+    names: [],
+    kcbzDatas: [], //课程标准
+    ssnjDatas: [], //所属年级
+    ssksDatas: [], //科室
+    wjlxDatas: [], //文件类型
+    filenames: [],
+    filename: [],
+    bzxx:[],
+    filenamesTitle: [],
+    filenamesType: [],
+    maxPage: 0, //最大的页码
+    totalData: 0, //总数据
+    jsonText: "[" //封装json
 };
 //fileEntity.dates = [] ; //日期
 //var dates = [];  //日期
@@ -36,100 +37,39 @@ var jsonText="[";//封装json*/
 $(document).ready(function() {
     //console.log("jquery ok!");
     // console.log("我是content.js");
-    queryDB();  //默认加载文件列表
+    queryDB(); //默认加载文件列表
     // console.log("我是content.js里面的queryDB()函数");
+    var host = window.location.host; //"localhost:85"
+    var href = window.location.href; //"http://localhost:85/gecp2/src/index.html"
+    $('#cont').on('click', '.content', function(event) {
+        // $('.content').click(function(event) { //对于动态生成的html，这样是不可行的
+        var fileName = $(this).children('.cont-title').eq(0).text();
+        var uldName = $(this).children('.cont-name').eq(0).text();
+        var uldDate = $(this).children('.cont-date').eq(0).text();
+        var kcbz = $(this).children('.kcbz-data').eq(0).text();
+        var ssnj = $(this).children('.ssnj-data').eq(0).text();
+        var ssks = $(this).children('.ssks-data').eq(0).text();
+        var wjlx = $(this).children('.wjlx-data').eq(0).text();
+        var bzxx = $(this).children('.bzxx-data').eq(0).text();
+        console.log(fileName);
+        sessionStorage.setItem('fileName', fileName);
+        sessionStorage.setItem('uldName', uldName);
+        sessionStorage.setItem('uldDate', uldDate);
+        sessionStorage.setItem('kcbz', kcbz);
+        sessionStorage.setItem('ssnj', ssnj);
+        sessionStorage.setItem('ssks', ssks);
+        sessionStorage.setItem('wjlx', wjlx);
+        sessionStorage.setItem('bzxx', bzxx);
+        /**/
+        // window.fileName1 = fileName;  //跨html是不能使用
 
-     $('#cont').on('click', '.content', function(event) {
-     // $('.content').click(function(event) { //对于动态生成的html，这样是不可行的
-         var fileName=$(this).children('.cont-title').eq(0).text();
-         console.log(fileName);
-         var fileType=fileName.split(".")[1];
-         if (fileType == "txt" || fileType == "html" || fileType == "css" || fileType == "js") {
-            downloadFileByBinary(fileName);
-         }else{
-            downloadFileByURL(fileName);
-         }
-         
-        
-     });
+        $('#mainframe').css('height', '1000px');
+        // document.querySelector('#mainframe').innerHTML = "";
+        $('#mainframe', parent.document).attr('src', 'res/fileDetial.html');
 
-     function downloadFileByURL(fileName){
-        var a =document.getElementById('downloadFtsetBtn');
-        if(a == undefined){
-            a=document.createElement('a');
-            a.id='downloadFtsetBtn';
-            a.style.display='none';
-            a.target='_blank';  
-            document.body.appendChild(a);
-        }
-        try{
-            var URL=window.URL || window.webkitURL;
-            a.href='http://localhost:85/gecp2/fileserver?fn=upload/'+fileName;
-            a.download = fileName;  
-           /* if (typeof navigator.msSaveBlob == "function"){  //IE
-                navigator.msSaveBlob(blob, fileName);
-            }*/
-            a.click();
-            /*if(callback!=undefined){
-                callback();
-            }*/
-        }catch(e){
-            console.error(e);
-        }
-     }
-     /**/
-    function downloadFileByBinary(fileName){
-        /*var fileType=fileName.split(".")[1];
-        var MIME=getMIME(fileType);
-        console.log(MIME);*/
-         /*下载查看  FileServer API*/
-             $.ajax({
-                 url: 'http://localhost:85/gecp2/fileserver',
-                 type: 'POST',
-                 // data: 'req=getzip&fn=upload/'+fileName+'&fn2='+fileName+'.zip'
-                 data: 'req=getfile&fn=upload/'+fileName,
-                 success:function(content){
-                     var blob = new Blob([content], {"type": 'text'});  //HTML 5 API 下载的时候注意type类型
-                     console.log(blob);
-                     var a =document.getElementById('downloadFtsetBtn');
-                     if(a == undefined){
-                         a=document.createElement('a');
-                         a.id='downloadFtsetBtn';
-                         a.style.display='none';
-                         a.target='_blank';  
-                         document.body.appendChild(a);
-                     }
-                     try{
-                         var URL=window.URL || window.webkitURL;
-                         window.objectURL = URL.createObjectURL(blob);
-                         a.href=objectURL;
-                         console.log(objectURL);
-                         a.download = fileName;  
-                         if (typeof navigator.msSaveBlob == "function"){  //IE
-                             navigator.msSaveBlob(blob, fileName);
-                         }
-                         a.click();
-                         /*if(callback!=undefined){
-                             callback();
-                         }*/
-                     }catch(e){
-                         console.error(e);
-                     }
-                 }
-             })
-             .done(function() {
-                 console.log("success");
-                 URL.revokeObjectURL(window.objectURL);
-             })
-             .fail(function() {
-                 console.log("error");
-             })
-             .always(function() {
-                 console.log("complete");
-             });  
-        
-        
-    }
+    });
+
+    
 });
 
 /**
@@ -137,69 +77,71 @@ $(document).ready(function() {
  * @param  {[string]} queryFilter [where语句条件]
  * @return {[type]}             [description]
  */
-function queryDB(queryFilter){
+function queryDB(queryFilter) {
     /*从数据中读取数据*/
     //queryFilter=queryFilter.slice(0,-4);
     // isRefresh(queryFilter);
     // console.log(queryFilter);
     //重新置为空，不然数据会累加
     fileEntity = {
-     dates:[],
-     names:[],
-     kcbzDatas :[], //课程标准
-     ssnjDatas :[], //所属年级
-     ssksDatas :[], //科室
-     wjlxDatas :[], //文件类型
-     filenames :[],
-     filename :[],
-     filenamesTitle :[],
-     filenamesType :[],
-     maxPage:0, //最大的页码
-     totalData:0, //总数据
-     jsonText:"["//封装json
+        dates: [],
+        names: [],
+        kcbzDatas: [], //课程标准
+        ssnjDatas: [], //所属年级
+        ssksDatas: [], //科室
+        wjlxDatas: [], //文件类型
+        filenames: [],
+        filename: [],
+        bzxx:[],
+        filenamesTitle: [],
+        filenamesType: [],
+        maxPage: 0, //最大的页码
+        totalData: 0, //总数据
+        jsonText: "[" //封装json
     };
     // var queryFilter1=queryFilter.slice(0, -4);
     // var queryFilter1=queryFilter.substring(0, 4);
-    
+
     var sqlServices = new gEcnu.WebSQLServices.SQLServices({
         'processCompleted': function(data) {
-            console.log(data);//回掉函数返回的数据
+            console.log(data); //回掉函数返回的数据
             // console.log(data[0].date);
             for (var i = 0; i < data.length; i++) {
-                fileEntity.dates.push(data[i].date);   //
-                fileEntity.names.push(data[i].uldname);//
-                fileEntity.kcbzDatas.push(data[i].kcbz);//
-                fileEntity.ssnjDatas.push(data[i].ssnj);//
-                fileEntity.ssksDatas.push(data[i].ssks);//
-                fileEntity.wjlxDatas.push(data[i].wjlx);//
+                fileEntity.dates.push(data[i].date); //
+                fileEntity.names.push(data[i].uldname); //
+                fileEntity.kcbzDatas.push(data[i].kcbz); //
+                fileEntity.ssnjDatas.push(data[i].ssnj); //
+                fileEntity.ssksDatas.push(data[i].ssks); //
+                fileEntity.wjlxDatas.push(data[i].wjlx); //
 
                 fileEntity.filename[i] = data[i].filename;
+                fileEntity.bzxx[i] = data[i].bzxx;
                 fileEntity.filenames.push(fileEntity.filename[i]); //整个名字//
                 //名字和类型分开
                 var split = fileEntity.filenames[i].split('.');
-                fileEntity.filenamesTitle.push(split[0]);//
-                fileEntity.filenamesType.push(split[1]);//
+                fileEntity.filenamesTitle.push(split[0]); //
+                fileEntity.filenamesType.push(split[1]); //
 
                 /*var jsonText={
                     "names":
                 };*/
                 // 封装成json
-                fileEntity.jsonText+='{ "upNames":"'+fileEntity.names[i-1]+'","date":"'+fileEntity.dates[i-1]+'","kcbz":"'+fileEntity.kcbzDatas[i]+
-                '","ssnj":"'+fileEntity.ssnjDatas[i]+'","ssks":"'+fileEntity.ssksDatas[i]+'","wjlx":"'+fileEntity.wjlxDatas[i]+
-                '","filenames":"'+fileEntity.filenames[i]+'"},';
+                fileEntity.jsonText += '{ "upNames":"' + fileEntity.names[i - 1] + '","date":"' + fileEntity.dates[i - 1] + '","kcbz":"' + fileEntity.kcbzDatas[i] +
+                    '","ssnj":"' + fileEntity.ssnjDatas[i] + '","ssks":"' + fileEntity.ssksDatas[i] + '","wjlx":"' + fileEntity.wjlxDatas[i] +
+                    '","filenames":"' + fileEntity.filenames[i] + '"},';
 
             }
 
-               jsonText=fileEntity.jsonText.slice(0, -1);
-               jsonText+=("]");
-               jsonText=JSON.parse(jsonText);
+            jsonText = fileEntity.jsonText.slice(0, -1);
+            jsonText += ("]");
+            jsonText = JSON.parse(jsonText);
 
-               /* var kcbzTopic=jsonText[1].kcbz;
-                var ssnjTopic=jsonText[0].ssnj;
-                // console.log(json2String);
-                console.log(kcbzTopic);
-                console.log(ssnjTopic);
-               //console.log(jsonText);*/
+            /* var kcbzTopic=jsonText[1].kcbz;
+             var ssnjTopic=jsonText[0].ssnj;
+             // console.log(json2String);
+             console.log(kcbzTopic);
+             console.log(ssnjTopic);
+            //console.log(jsonText);*/
 
             //动态创建div？JQuery复制  
             /*var txt1="<p>Text.</p>"; // 以 HTML 创建新元素
@@ -208,7 +150,7 @@ function queryDB(queryFilter){
             txt3.innerHTML="Text.";
             $("p").append(txt1,txt2,txt3); // 追加新元素
             */
-            
+
             getContentDiv(0); //绘制内容div
 
         },
@@ -219,8 +161,8 @@ function queryDB(queryFilter){
     //processAscyn: function(ActionType,map,lyrOrSQL,Params)
     var lyrOrSQL = {
         'lyr': 'uploadFile',
-        'fields': 'uldname,kcbz,ssnj,ssks,wjlx,date,filename',
-        'filter':queryFilter
+        'fields': 'uldname,kcbz,ssnj,ssks,wjlx,date,filename,bzxx',
+        'filter': queryFilter
     };
     sqlServices.processAscyn("SQLQUERY", "gecp2", lyrOrSQL);
     /**********数据库End**********************/
@@ -229,7 +171,7 @@ function queryDB(queryFilter){
 function getContentDiv(pageNum) {
     // var pageNum=$('#page-num').val();
     /*if(type=="init"){
-    	pageNum=1;
+        pageNum=1;
     }*/
     totalData = fileEntity.filenamesTitle.length;
     // console.log(totalData);
@@ -251,13 +193,24 @@ function getContentDiv(pageNum) {
         /*var cloned=$('#content').clone(true);//true带着所有时间克隆
         console.log(cloned);
         $('.cont').append(cloned);*/
-        if (fileEntity.filenames[i] != null || fileEntity.filenames[i] != undefined) {//不能改为！==
+        if (fileEntity.filenames[i] != null || fileEntity.filenames[i] != undefined) { //不能改为！==
             var html = "<div id='content' class='content cont2'>" +
                 "<img src='img/nr/" + (j + 1) + ".png' class='cont-img' alt=''/>" +
                 "<p class='cont-title' id='cont-title'>" + fileEntity.filenames[i] + "</p>" +
                 "<span class='cont-name'>" + fileEntity.names[i] + " </span> " +
                 "<span class='cont-date'>" + fileEntity.dates[i] + "</span>" +
+                "<span id='kcbz-data' class='kcbz-data'>" + fileEntity.kcbzDatas[i] + "</span>" +
+                "<span id='ssnj-data' class='ssnj-data'>" + fileEntity.ssnjDatas[i] + "</span>" +
+                "<span id='ssks-data' class='ssks-data'>" + fileEntity.ssksDatas[i] + "</span>" +
+                "<span id='wjlx-data' class='wjlx-data'>" + fileEntity.wjlxDatas[i] + "</span>" +
+                "<span id='bzxx-data' class='bzxx-data'>" + fileEntity.bzxx[i] + "</span>" +
                 "</div>";
+            /*var html = "<div id='content' class='content cont2'>" +
+                "<img src='img/nr/" + (j + 1) + ".png' class='cont-img' alt=''/>" +
+                "<p class='cont-title' id='cont-title'>" + fileEntity.filenames[i] + "</p>" +
+                "<span class='cont-name'>" + fileEntity.names[i] + " </span> " +
+                "<span class='cont-date'>" + fileEntity.dates[i] + "</span>" +
+                "</div>";*/
             j++;
             //console.log(html);
             $('.cont').append(html);
