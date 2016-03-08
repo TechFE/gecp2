@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,82 +8,81 @@
     <title>地理教育云平台</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="home/css/home.css" rel="stylesheet">
- 
     <!--[if lt IE 9]>
     <script src="bootstrap/js/html5shiv.js"></script>
     <script src="bootstrap/js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
-<!-- 顶部导航栏 -->
-<nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">
-      	 <img alt="地理教育云平台" class="brand" src="home/img/logo.png"  />
-      </a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="index"><a>首页</a></li>
-        <li><a>资源</a></li>
-        <li><a>社区</a></li>
-        <li class="dropdown">
-          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">研修 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="www.baidu.com">集体备课</a></li>
-            <li><a href="#">评课议课</a></li>
-            <li><a href="#">课题研究</a></li>
-            <li><a href="#">科研成果</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">评比竞赛</a></li>
-            <li><a href="#">基础应用</a></li>
-          </ul>
-        </li> 
-        <li><a >管理</a></li>
-      </ul>
-     <!--  <form class="navbar-form navbar-left" role="search">
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img alt="地理教育云平台" class="brand" src="home/img/logo.png" />
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="index"><a>首页</a></li>
+                    <li><a>资源</a></li>
+                    <li><a>社区</a></li>
+                    <!-- <li><a>研修应用</a></li> -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle yxyy-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">研修应用 <span class="caret"></span></a>
+                        <ul class="dropdown-menu yxyy-subs">
+                            <li><a>集体备课</a></li>
+                            <li><a>评课议课</a></li>
+                            <li><a>课题研究</a></li>
+                            <li><a>科研成果</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a>评比竞赛</a></li>
+                            <li><a>基础应用</a></li>
+                        </ul>
+                    </li>
+                    <li><a>管理</a></li>
+                </ul>
+                <!--  <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
          <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">搜索</button>
       </form> -->
-
-      <ul id="index-user" class="nav navbar-nav navbar-right">
-        <li id="index-register"><a href="login/register.html">注册</a></li>
-        <li id="index-login"><a href="login.html">登陆</a></li>
-       
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav> <!-- 顶部导航栏End -->
-<!---------------------  -->
-<!-- iframe主要内容替换 -->
- <iframe id="mainframe" scrolling="no" src="home/home.html" style="width:100%;height:1720px;border-width: 0px;">
-</iframe>
-<!---------------------- -->
-<!-- 底栏 -->
-  <footer>
+                <ul id="index-user" class="nav navbar-nav navbar-right">
+                    <li id="index-register"><a href="login/register.html">注册</a></li>
+                    <li id="index-login"><a href="login.html">登陆</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- 顶部导航栏End -->
+    <!---------------------  -->
+    <!-- iframe主要内容替换 -->
+    <iframe id="mainframe" scrolling="no" src="home/home.html" style="width:100%;height:1720px;border-width: 0px;">
+    </iframe>
+    <!---------------------- -->
+    <!-- 底栏 -->
+    <footer>
         <p class="pull-right"><a href="#top">回到顶部</a></p>
-
         <p>&copy; 2015 华东师范大学地理科学学院 </p>
     </footer>
-<!-- 底栏End -->
-
-<script src="bootstrap/js/jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="home/js/changePage.js"></script>
-<script src="home/js/home.js"></script>
-<script src="common/js/cookie.js"></script>
-
+    <!-- 底栏End -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="home/js/changePage.js"></script>
+    <script src="home/js/home.js"></script>
+    <script src="common/js/cookie.js"></script>
 </body>
+
 </html>

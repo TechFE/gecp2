@@ -21,27 +21,41 @@ $(document).ready(function(){
 		var txt=$(this).text();
 		console.log(txt);
 		if(txt=="首页"){
-			// $('#main-div').css('height','1720px');
 			$('#mainframe').css('height','1800px');
 			$('#mainframe').attr('src','home/home.html');
 		}
 
 		if(txt=="资源"){
-			// $('#main-div').css('height','950px');
 			$('#mainframe').css('height','1000px');
 			$('#mainframe').attr('src','res/res.html');		
 		}
 
 		if(txt=="社区"){
-			//$('#main-div').css('height','650px');
 			$('#mainframe').css('height','650px');
 			$('#mainframe').attr('src','shequ/shequ.html');	
 		}
+	});
 
-		if(txt=="研修"){
-			//$('#main-div').css('height','650px');
-			$('#mainframe').css('height','650px');
-			$('#mainframe').attr('src','yanxiu/yanxiu.html');		
+	$('.yxyy-subs li a').click(function(event) {
+		$('.yxyy-menu').css('color', '#FFF');
+		var subTxt = $(this).text();
+		switch(subTxt){
+			case "集体备课" :
+				$('#mainframe').css('height','650px');
+				$('#mainframe').attr('src','yanxiu/jtbk.html');
+				break;	
+			case "评课议课" :
+				$('#mainframe').css('height','650px');
+				$('#mainframe').attr('src','yanxiu/pkyk.html');
+				break;	
+			case "课题研究" :
+				$('#mainframe').css('height','650px');
+				$('#mainframe').attr('src','yanxiu/ktyj.html');
+				break;	
+			case "科研成果" :
+				$('#mainframe').css('height','650px');
+				$('#mainframe').attr('src','yanxiu/kycg.html');
+				break;
 		}
 	});
 });
