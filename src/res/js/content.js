@@ -4,6 +4,7 @@
  *
  */
 var fileEntity = {
+    fid:[],        //id标识号
     dates: [],
     names: [],
     kcbzDatas: [], //课程标准
@@ -13,6 +14,8 @@ var fileEntity = {
     filenames: [],
     filename: [],
     bzxx:[],
+    commentsperson:[],
+    fcomments:[],  //评论
     filenamesTitle: [],
     filenamesType: [],
     maxPage: 0, //最大的页码
@@ -51,6 +54,9 @@ $(document).ready(function() {
         var ssks = $(this).children('.ssks-data').eq(0).text();
         var wjlx = $(this).children('.wjlx-data').eq(0).text();
         var bzxx = $(this).children('.bzxx-data').eq(0).text();
+        var commentsperson = $(this).children('.commentsperson').eq(0).text();
+        var fcomments = $(this).children('.fcomments').eq(0).text();
+        var fid = $(this).children('.fid').eq(0).text();
         console.log(fileName);
         sessionStorage.setItem('fileName', fileName);
         sessionStorage.setItem('uldName', uldName);
@@ -60,12 +66,16 @@ $(document).ready(function() {
         sessionStorage.setItem('ssks', ssks);
         sessionStorage.setItem('wjlx', wjlx);
         sessionStorage.setItem('bzxx', bzxx);
+        sessionStorage.setItem('commentsperson', commentsperson);
+        sessionStorage.setItem('fcomments', fcomments);
+        sessionStorage.setItem('fid', fid);
+        console.log(fcomments);
         /**/
         // window.fileName1 = fileName;  //跨html是不能使用
 
-        $('#mainframe').css('height', '1000px');
+        $('#mainframe',parent.document).css('height', '1100px');
         // document.querySelector('#mainframe').innerHTML = "";
-        $('#mainframe', parent.document).attr('src', 'res/fileDetial.html');
+        $('#mainframe',parent.document).attr('src', 'res/fileDetial.html');
 
     });
 
@@ -84,6 +94,7 @@ function queryDB(queryFilter) {
     // console.log(queryFilter);
     //重新置为空，不然数据会累加
     fileEntity = {
+        fid:[],     
         dates: [],
         names: [],
         kcbzDatas: [], //课程标准
@@ -93,6 +104,8 @@ function queryDB(queryFilter) {
         filenames: [],
         filename: [],
         bzxx:[],
+        commentsperson:[],
+        fcomments:[],  //评论内容
         filenamesTitle: [],
         filenamesType: [],
         maxPage: 0, //最大的页码
@@ -116,6 +129,9 @@ function queryDB(queryFilter) {
 
                 fileEntity.filename[i] = data[i].filename;
                 fileEntity.bzxx[i] = data[i].bzxx;
+                fileEntity.commentsperson[i] = data[i].commentsperson;
+                fileEntity.fcomments[i] = data[i].fcomments;
+                fileEntity.fid[i] = data[i].fid;
                 fileEntity.filenames.push(fileEntity.filename[i]); //整个名字//
                 //名字和类型分开
                 var split = fileEntity.filenames[i].split('.');
@@ -161,7 +177,7 @@ function queryDB(queryFilter) {
     //processAscyn: function(ActionType,map,lyrOrSQL,Params)
     var lyrOrSQL = {
         'lyr': 'uploadFile',
-        'fields': 'uldname,kcbz,ssnj,ssks,wjlx,date,filename,bzxx',
+        'fields': 'fid,uldname,kcbz,ssnj,ssks,wjlx,date,filename,bzxx,commentsperson,fcomments',
         'filter': queryFilter
     };
     sqlServices.processAscyn("SQLQUERY", "gecp2", lyrOrSQL);
@@ -189,6 +205,7 @@ function getContentDiv(pageNum) {
     //分页取数据
     $('.cont').empty(); //清除所有再去添加
     var j = 0;
+    // var fragDocument = document.createDocumentFragment();
     for (var i = pageNum * 15; i < N; i++) {
         /*var cloned=$('#content').clone(true);//true带着所有时间克隆
         console.log(cloned);
@@ -204,6 +221,9 @@ function getContentDiv(pageNum) {
                 "<span id='ssks-data' class='ssks-data'>" + fileEntity.ssksDatas[i] + "</span>" +
                 "<span id='wjlx-data' class='wjlx-data'>" + fileEntity.wjlxDatas[i] + "</span>" +
                 "<span id='bzxx-data' class='bzxx-data'>" + fileEntity.bzxx[i] + "</span>" +
+                "<span id='fcomments' class='fcomments'>" + fileEntity.fcomments[i] + "</span>" +
+                "<span id='fid' class='fid'>" + fileEntity.fid[i] + "</span>" +
+                "<span id='commentsperson' class='commentsperson'>" + fileEntity.commentsperson[i] + "</span>" +
                 "</div>";
             /*var html = "<div id='content' class='content cont2'>" +
                 "<img src='img/nr/" + (j + 1) + ".png' class='cont-img' alt=''/>" +
@@ -214,7 +234,9 @@ function getContentDiv(pageNum) {
             j++;
             //console.log(html);
             $('.cont').append(html);
+            // fragDocument.appendChild(html);
         }
+        // $('.cont').append(fragDocument);
     }
 }
 

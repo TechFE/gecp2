@@ -157,7 +157,10 @@ body {
 .ssnj-data,
 .ssks-data,
 .wjlx-data,
-.bzxx-data{
+.bzxx-data,
+.fcomments,
+.fid,
+.commentsperson{
 	display: none;
 }
 .pagination{
