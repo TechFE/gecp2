@@ -27,11 +27,9 @@
 */
 var whereArgs="";
 $(document).ready(function(){
-	console.log("我是search.js");
+
 	$('#searDiv ul').find('li:gt(0)').hover(function(){
 		$(this).css('cursor','pointer');
-		// console.log("hover!!!!");
-
 	});
 	$('#searDiv ul li:nth-child(2)').addClass('selected');
 
@@ -57,13 +55,13 @@ $(document).ready(function(){
 		//点击查询
 		clk2search(topicParentName,topic);
 		//whereArgs=whereArgs.slice(0,-4);
-		console.log(whereArgs);
-	    console.log("我是search.js里面的queryDB()函数");
+		//console.log(whereArgs);
+	    //console.log("我是search.js里面的queryDB()函数");
     	// $('.cont').empty(); //清除所有再去添加
     	// $('div').remove('.content');
 		document.querySelector('.cont').innerHTML="";
 		//点击搜索之后  重新遍历数据库
-		queryDB(whereArgs.slice(0,-4));
+		queryDB(whereArgs.slice(0,-4));   /*在content.js中*/
  
 	});
 });

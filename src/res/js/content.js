@@ -3,6 +3,23 @@
  * 生成文件列表div 点击进入详情页,下载
  *
  */
+
+//fileEntity.dates = [] ; //日期
+//var dates = [];  //日期
+/*var names = []; //上传人
+var kcbzDatas = []; //课程标准
+var ssnjDatas = []; //所属年级
+var ssksDatas = []; //科室
+var wjlxDatas = []; //文件类型
+var filenames = [];
+var filename = [];
+var filenamesTitle = [];
+var filenamesType = [];
+var maxPage; //最大的页码
+var totalData; //总数据
+var jsonText="[";//封装json*/
+
+$(document).ready(function() {
 var fileEntity = {
     fid:[],        //id标识号
     dates: [],
@@ -22,28 +39,10 @@ var fileEntity = {
     totalData: 0, //总数据
     jsonText: "[" //封装json
 };
-//fileEntity.dates = [] ; //日期
-//var dates = [];  //日期
-/*var names = []; //上传人
-var kcbzDatas = []; //课程标准
-var ssnjDatas = []; //所属年级
-var ssksDatas = []; //科室
-var wjlxDatas = []; //文件类型
-var filenames = [];
-var filename = [];
-var filenamesTitle = [];
-var filenamesType = [];
-var maxPage; //最大的页码
-var totalData; //总数据
-var jsonText="[";//封装json*/
-
-$(document).ready(function() {
-    //console.log("jquery ok!");
-    // console.log("我是content.js");
     queryDB(); //默认加载文件列表
     // console.log("我是content.js里面的queryDB()函数");
-    var host = window.location.host; //"localhost:85"
-    var href = window.location.href; //"http://localhost:85/gecp2/src/index.html"
+   /* var host = window.location.host; //"localhost:85"
+    var href = window.location.href; //"http://localhost:85/gecp2/src/index.html"*/
     $('#cont').on('click', '.content', function(event) {
         // $('.content').click(function(event) { //对于动态生成的html，这样是不可行的
         var fileName = $(this).children('.cont-title').eq(0).text();
@@ -241,14 +240,3 @@ function getContentDiv(pageNum) {
 }
 
 
-/*function getMIME(type){
-     switch(type){   
-            case "png":
-                return 'image/png';
-            case "jpg":
-            case "jpeg":
-                return 'image/jpeg';
-            case "bmp":
-                return 'image/x-ms-bmp';
-        }
-}*/
