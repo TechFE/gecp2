@@ -136,35 +136,16 @@ function queryDB(queryFilter) {
                 var split = fileEntity.filenames[i].split('.');
                 fileEntity.filenamesTitle.push(split[0]); //
                 fileEntity.filenamesType.push(split[1]); //
-
-                /*var jsonText={
-                    "names":
-                };*/
                 // 封装成json
-                fileEntity.jsonText += '{ "upNames":"' + fileEntity.names[i - 1] + '","date":"' + fileEntity.dates[i - 1] + '","kcbz":"' + fileEntity.kcbzDatas[i] +
+                /*fileEntity.jsonText += '{ "upNames":"' + fileEntity.names[i - 1] + '","date":"' + fileEntity.dates[i - 1] + '","kcbz":"' + fileEntity.kcbzDatas[i] +
                     '","ssnj":"' + fileEntity.ssnjDatas[i] + '","ssks":"' + fileEntity.ssksDatas[i] + '","wjlx":"' + fileEntity.wjlxDatas[i] +
-                    '","filenames":"' + fileEntity.filenames[i] + '"},';
+                    '","filenames":"' + fileEntity.filenames[i] + '"},';*/
 
             }
 
-            jsonText = fileEntity.jsonText.slice(0, -1);
+        /*    jsonText = fileEntity.jsonText.slice(0, -1);
             jsonText += ("]");
-            jsonText = JSON.parse(jsonText);
-
-            /* var kcbzTopic=jsonText[1].kcbz;
-             var ssnjTopic=jsonText[0].ssnj;
-             // console.log(json2String);
-             console.log(kcbzTopic);
-             console.log(ssnjTopic);
-            //console.log(jsonText);*/
-
-            //动态创建div？JQuery复制  
-            /*var txt1="<p>Text.</p>"; // 以 HTML 创建新元素
-            var txt2=$("<p></p>").text("Text.");  // 以 jQuery 创建新元素
-            var txt3=document.createElement("p"); // 以 DOM 创建新元素
-            txt3.innerHTML="Text.";
-            $("p").append(txt1,txt2,txt3); // 追加新元素
-            */
+            jsonText = JSON.parse(jsonText);*/
 
             getContentDiv(0); //绘制内容div
 

@@ -56,7 +56,6 @@ $(document).ready(function() {
     //确定===>传入数据库
     $('#ulQd').click(function() {
         var uldname = getCookie('username');
-        console.log(uldname);
         var kcbz = $('#upload_kcbz').val();
         var ssnj = $('#upload_ssnj').val();
         var ssks = $('#upload_ssks').val();

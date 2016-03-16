@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>下载文件</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fileDetial.css">
+</head>
+
+<body>
+    <div id="download-file-wrapper" class="download-file-wrapper">
+        <div class="file-detail-title" id="file-detail-title"> 文件名 </div>
+        <div class="file-messages-type">
+            <div class="file-detial">
+                <div>上 传 者： <span class="detial-uldname"></span></div>
+                <div>上传日期： <span class="detial-ulddate"></span></div>
+                <div>课程标准： <span class="detial-kcbz"></span></div>
+                <div>所属年级： <span class="detial-ssnj"></span></div>
+                <div>所属科室： <span class="detial-ssks"></span></div>
+                <div>文件类型： <span class="detial-wjlx"></span></div>
+                <div>备注信息： <span class="detial-bzxx"></span></div>
+            </div>
+            <div class="file-type-img">
+                <img src="img/type/docx.png" class="file-type-img-src" alt="图片加载中">
+            </div>
+        </div>
+        <div class="user-behaviour">
+            <div class="info">
+                <a><span>收藏</span></a>
+                <a><span>评价</span></a>
+            </div>
+            <a class="download-file-btn btn-info">
+                <span>下载文件</span>
+            </a>
+        </div>
+        <div class="assess">
+            <span class="assess-title">评价：</span>
+            <div>
+                <textarea name="assess-message" id="assess-message" class="assess-message" cols="100" rows="3"></textarea>
+                <input type="button" class="assess-submit btn-primary " value="提交评价"></input>
+            </div>
+        </div>
+        <div class="assess-list-box">
+            <span class="assess-list-title">评价列表:</span>
+            <div class="comments-divs">
+            </div>
+        </div>
+        <ul class="pagination" id="pagination1"></ul>
+    </div>
+    <script type="text/javascript" src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <!-- <script type="text/javascript" src="js/content.js"></script> -->
+    <script src="js/jqPaginator.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/fileDetial.js"></script>
+    <script type="text/javascript" src="../common/js/cookie.js"></script>
+    <script src="../common/jslib/gClass.js" type="text/javascript"></script>
+    <script src="../common/jslib/gConfig.js" type="text/javascript"></script>
+    <script src="../common/jslib/gUtil.js" type="text/javascript"></script>
+    <script src="../common/jslib/gUpload.js" type="text/javascript"></script>
+    <script src="../common/jslib/gWebSQL.js" type="text/javascript"></script>
+    <script src="../common/jslib/gWebSQLScript.js" type="text/javascript"></script>
+</body>
+
+</html>

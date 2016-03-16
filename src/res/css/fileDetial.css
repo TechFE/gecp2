@@ -1,0 +1,153 @@
+html{
+	font-size: 62.5%;
+}
+body{
+	margin: 0;
+	font-family: '微软雅黑';
+}
+.download-file-wrapper{
+	height:1000px;
+	width:75%;
+	margin:0 auto;
+	/*float: left;*/
+	background-color: #FFF;
+	min-width: 1000px;
+}
+.download-file-wrapper .file-detail-title{
+	font-size: 3rem;
+	/*width:800px;
+	margin:auto;*/
+	padding: 15px;
+	padding-left: 200px;
+	padding-right: 50px;
+	word-break: keep-all;
+	border-bottom: solid #ccc 1px;	
+}
+.file-messages-type{
+	height: 25%;
+	width:100%;
+}
+.file-detial{
+	padding: 0 0 0 10% ;
+	float: left;
+	font-size: 0.8rem;
+}
+.file-detial div{
+	margin:15px;
+}
+
+
+.file-type-img{
+	width:150px;
+	height:150px;
+	float: right;
+	margin-right: 30%;
+	margin-top: 5%;
+}
+.file-type-img-src{
+	width: 150px;
+	height:150px;
+}
+
+/*下载文件按钮*/
+.user-behaviour{
+	width:100%;
+	height: 45px;
+	display: flex;
+	justify-content: space-between;
+	background-color: #DEDEDE
+}
+
+.user-behaviour .info span{
+	float: left;
+	margin-left: 30px;
+	margin-top: 15px;
+	padding-left: 20px;
+	background:url(../img/collect.png)  no-repeat;
+}
+.user-behaviour .download-file-btn{
+	float: right;
+	padding-top: 8px;
+	padding-left: 8px;
+	height: 100%;
+	width: 140px;
+}
+.user-behaviour .download-file-btn:before{
+	content:url(../img/download.png);
+}
+.user-behaviour .download-file-btn span{
+	position: absolute;
+	text-align: center;
+	font-size: 2rem;
+}
+.assess{
+	height: 100px;
+	margin-left: 10%;
+}
+.assess .assess-title{
+	color: #C9A5A5;
+	margin-left: -10%;
+}
+.assess-message{
+	float: left;
+}
+.assess-submit{
+	float: right;
+	margin-right: 7%;
+	margin-top: 18px;
+}
+.assess-list-box{
+	height:550px;
+}
+.assess-list-title{
+	color: #C9A5A5;
+}
+/*动态生成评论列表*/
+.one-comments{
+	height: 90px;
+	margin: 10px 0 15px 0;
+}
+.cicle-img,
+.comments-person-content{
+	display: inline-block;
+}
+.cicle-img{
+	width:10%;
+	height:60px;
+	/*border-radius: 90px;*/
+	margin-bottom: 10px;
+	background-color: #ccc;
+	/*background-image: url(../img/person.png);*/
+	background: url(../img/person.png) no-repeat;
+	/*background-size: cover;*/
+
+}
+.comments-person-content{
+	/*position: absolute;*/
+	width: 89%;
+	height: 90px;
+	border-radius: 10px;
+	border-bottom: solid 1px #ccc;
+	overflow: hidden;
+}
+.comments-person{
+	position: absolute;
+	margin-left:10px;
+	margin-top:10px;
+	color: #5245AF;
+	font-size: 2rem;
+}
+.comments-content{
+	position: absolute;
+	margin-left:10px;
+	margin-top:45px;
+	text-overflow: ellipsis;
+
+}
+/*分页*/
+.pagination{
+	float: right;
+	margin-top: 30px;
+	margin-right: 25%;
+	margin-bottom: 0;
+}
